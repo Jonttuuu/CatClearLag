@@ -1,7 +1,6 @@
 package me.time6628.clag.sponge.commands;
 
 import me.time6628.clag.sponge.CatClearLag;
-import me.time6628.clag.sponge.Messages;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.command.args.CommandContext;
@@ -26,9 +25,9 @@ public class UnloadChunksCommand implements CommandExecutor {
 
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) {
-        src.sendMessage(Text.builder().append(Messages.getPrefix()).append(Messages.colorMessage("Unloading all chunks...")).build());
+        src.sendMessage(Text.builder("Unloading all chunks...").build());
         int chunks = plugin.unloadChunks();
-        src.sendMessage(Text.builder().append(Messages.getPrefix()).append(Messages.colorMessage(chunks + " chunks unloaded.")).build());
+        src.sendMessage(Text.builder(chunks + " chunks unloaded.").build());
         return CommandResult.successCount(chunks);
     }
 }
